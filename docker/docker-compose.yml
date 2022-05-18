@@ -2,10 +2,14 @@ version: "3"
 services:
  todotests:
    image: todotests
+   depends_on:
+     - "todofront"
    environment:
      FRONT_HOST: todofront
  todofront:
    image: todofrontend
+   depends_on:
+     - "todoback"
    ports:
      - 3000:3000
    environment:
